@@ -22,7 +22,7 @@ export async function interaction(
     if (
       command.devOnly &&
       (!config.developers.includes(interaction.user.id) ||
-        !config.developers.includes(interaction.user.id))
+        !config.developers.includes(interaction.user.username))
     ) {
       await interaction.reply({
         content:
