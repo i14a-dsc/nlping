@@ -12,7 +12,7 @@ export const command: Command = {
     description: 'Get the Neverland RPG Status',
     description_localizations: { ja: 'Neverland RPGのステータスを取得します' },
     type: 1,
-    integration_types: [0],
+    integration_types: [0, 1],
     options: [
       {
         name: 'ephemeral',

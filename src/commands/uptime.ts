@@ -6,7 +6,7 @@ export const command: Command = {
     name: 'uptime',
     description: 'Get the uptime of the bot',
     type: 1,
-    integration_types: [0],
+    integration_types: [0, 1],
   },
   run: async (interaction, client) => {
     if (!client.readyTimestamp) return;

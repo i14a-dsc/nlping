@@ -7,7 +7,7 @@ export const command: Command = {
     description: 'Restart the bot',
     description_localizations: { ja: 'Botを再起動します' },
     type: 1,
-    integration_types: [0],
+    integration_types: [0, 1],
   },
   devOnly: true,
   run: async (interaction, client) => {

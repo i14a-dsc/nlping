@@ -11,7 +11,7 @@ export const command: Command = {
     description: 'Get the Neverland RPG Status',
     description_localizations: { ja: 'Botのバージョン情報を取得します' },
     type: 1,
-    integration_types: [0],
+    integration_types: [0, 1],
   },
   run: async (interaction, client) => {
     const me = client.user!;
