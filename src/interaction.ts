@@ -19,11 +19,7 @@ export async function interaction(
   }
 
   try {
-    if (
-      command.devOnly &&
-      (!config.developers.includes(interaction.user.id) ||
-        !config.developers.includes(interaction.user.username))
-    ) {
+    if (command.devOnly && !config.developers.includes(interaction.user.username)) {
       await interaction.reply({
         content:
           "I'm sorry, but you do not have permission to perform this command. Please contact the server administrators if you believe that is in error.",
