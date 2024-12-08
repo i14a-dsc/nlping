@@ -6,7 +6,7 @@ export const command: Command = {
     name: 'update',
     description: 'Restart the bot',
     type: 1,
-    integration_types: [0],
+    integration_types: [0, 1],
   },
   devOnly: true,
   run: async interaction => {

@@ -27,7 +27,7 @@ export interface APIApplicationCommand {
   /**
    * Bitmask of the types of target that can be used
    */
-  integration_types: ApplicationIntegrationType[];
+  integration_types?: ApplicationIntegrationType[];
   /**
    * Guild id of the command, if not global
    */
