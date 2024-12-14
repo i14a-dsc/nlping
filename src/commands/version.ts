@@ -9,7 +9,7 @@ export const command: Command = {
     name: 'version',
     name_localizations: { ja: 'バージョン情報' },
     description: 'Get the Neverland RPG Status',
-    description_localizations: { ja: 'Botのバージョン情報を取得します' },
+    description_localizations: { ja: 'Botのバージョン情報を表示します' },
     type: 1,
     contexts: [0, 1, 2],
     integration_types: [0, 1],

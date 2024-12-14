@@ -7,6 +7,13 @@ export async function interaction(
   commands: Collection<string, any>
 ) {
   if (!interaction.isChatInputCommand()) return;
+  if (config.checkIgnored(interaction.user)) {
+    interaction.reply({
+      content: config.emoji.barrier + ' You are not allowed to use this command.',
+      ephemeral: true,
+    });
+    return;
+  }
 
   const command = commands.get(interaction.commandName);
   if (!command) {
@@ -21,8 +28,10 @@ export async function interaction(
   try {
     if (command.devOnly && !config.developers.includes(interaction.user.username)) {
       await interaction.reply({
-        content:
-          "I'm sorry, but you do not have permission to perform this command. Please contact the server administrators if you believe that is in error.",
+        content: [
+          'This command is require privileged access.',
+          'Please contact the server administrators if you believe that is in error.',
+        ].join('\n'),
         ephemeral: true,
       });
       return;
@@ -32,7 +41,7 @@ export async function interaction(
   } catch (error) {
     console.error(error);
     await interaction.reply({
-      content: 'There was an error while executing this command!',
+      content: 'There was an error while executing this command. Please try again later.',
       ephemeral: true,
     });
   }

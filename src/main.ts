@@ -30,7 +30,7 @@ import { interaction } from './interaction.js';
 
   new REST({ version: '10' })
     .setToken(config.token)
-    .put(Routes.applicationCommands('1106094223587037214'), {
+    .put(Routes.applicationCommands(client.application!.id), {
       body: commands.map(command => command.data),
     })
     .catch(console.error);

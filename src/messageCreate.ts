@@ -5,6 +5,7 @@ import { pingJava } from '@minescope/mineping';
 const botInfo = `${config.name} ${config.version}`;
 
 export async function messageCreate(client: Client, message: Message) {
+  if (message.author.bot || config.checkIgnored(message.author)) return;
   const content = message.content;
   const me = client.user!;
   if (!content.startsWith(config.prefix)) return;
@@ -18,7 +19,7 @@ export async function messageCreate(client: Client, message: Message) {
               { name: 'コマンド一覧', value: ' ' },
               {
                 name: 'ping',
-                value: 'サーバーのPingを取得します',
+                value: 'Bot の Ping を取得します',
               },
               {
                 name: 'stats',
@@ -26,7 +27,7 @@ export async function messageCreate(client: Client, message: Message) {
               },
               {
                 name: 'stop',
-                value: 'Botを終了します',
+                value: 'Bot を終了します (requie privilege)',
               },
               {
                 name: 'uptime',
@@ -38,7 +39,7 @@ export async function messageCreate(client: Client, message: Message) {
               },
               {
                 name: 'version',
-                value: 'Botのバージョンを取得します',
+                value: 'Botのバージョンを表示します',
               }
             )
             .setFooter({ text: botInfo }),
